@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Macronutrientes</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Imagen de fondo -->
+<div class="position-absolute w-100 h-100">
+  <img
+    src="https://media.istockphoto.com/id/2150471415/es/foto/buddha-bowl-vegano-para-una-dieta-equilibrada-con-tofu-quinoa-verduras-y-legumbres-fondo-de.jpg?s=612x612&w=0&k=20&c=iBZ6O-HV8GMiCE0phZUYyyRt6UySiHuHXKkj0Pw3t14="
+    class="img-fluid w-100 h-100"
+    alt="Fondo saludable"
+  >
+</div>
+
+<!-- Contenido -->
+<div class="container position-relative">
+
+  <div class="row justify-content-center mt-5 pt-5">
+
+    <!-- Formulario -->
+    <div class="col-md-6 d-flex mb-5">
+      <div class="card bg-light shadow-lg border-light p-4 w-100 h-100">
+        <div class="card-header bg-primary text-white text-center">
+          <h2>Calculadora de Macronutrientes</h2>
+        </div>
+
+        <div class="card-body">
+          <form method="POST">
+            
+            <div class="form-group">
+              <label>Calorías diarias:</label>
+              <input type="number" step="1" name="calorias" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>% Proteína:</label>
+              <input type="number" step="1" name="proteina_pct" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>% Carbohidratos:</label>
+              <input type="number" step="1" name="carbo_pct" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>% Grasas:</label>
+              <input type="number" step="1" name="grasa_pct" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-3">Calcular Macronutrientes</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resultado -->
+    <div class="col-md-6 d-flex mb-5">
+      {% if resultado is not none %}
+      <div class="card bg-light shadow-lg border-light p-4 w-100 h-100">
+        <div class="card-header bg-dark text-white text-center">
+          <h3>Resultado</h3>
+        </div>
+
+        <div class="card-body text-center">
+          <div class="alert alert-success">
+            <h5>Proteína: {{ resultado[0] }} g</h5>
+            <h5>Carbohidratos: {{ resultado[1] }} g</h5>
+            <h5>Grasas: {{ resultado[2] }} g</h5>
+          </div>
+          <p class="h6 mt-3">Estos son tus macronutrientes diarios aproximados según tus calorías y porcentajes.</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
