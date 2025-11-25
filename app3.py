@@ -14,7 +14,7 @@ def calcular_macros(calorias, proteina_pct, carbo_pct, grasa_pct):
 
     return proteina_g, carbo_g, grasa_g
 
-@app.route("/macros", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def macros():
     resultado = None
     if request.method == "POST":
@@ -28,4 +28,7 @@ def macros():
         except:
             resultado = None
 
-    return render_template("macros.html", resultado=resultado)
+    return render_template("index.html", resultado=resultado)
+
+if __name__ == "__main__":
+    app.run(debug=True)
